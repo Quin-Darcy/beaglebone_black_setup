@@ -24,6 +24,8 @@ Before running the script, please ensure you have completed the following steps:
     sudo ./setup.sh
     ```
 5. Follow any on-screen instructions to complete the setup process.
+6. The default standard user credentials are: `debian:temppwd`
+7. The default root credentials are: `root:123`
 
 ## Contributions
 
