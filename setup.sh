@@ -237,6 +237,10 @@ sync
 echo "[i] Updating kernel modules ..."
 cp -r /lib/modules/6.5.0-rc1-00033-geb26cbb1a754/* $MOUNT_PATH_ROOTFS/lib/modules/
 
+echo "[i] Setting root password in /etc/shadow ..."
+ROOT_SHADOW="root:\$6\$z1Qg6r5oAQe/MRze\$fgBB5jsG8p9pxcFckC/5/VarfU7fsKXUuPk0Ir.VwGSea.xVlwShvKK0.WIW7POAHd454MISdIkru.p0MWOj0/:18207:0:99999:7:::"
+sed -i "1s/.*/$ROOT_SHADOW/" $MOUNT_PATH_ROOTFS/etc/shadow
+
 echo "[i] Unmounting ${DISK_PATH}p1 from $MOUNT_PATH_BOOT ..."
 umount $MOUNT_PATH_BOOT >/dev/null || { echo "[!] Failed to unmount partition 1"; exit 1; }
 
